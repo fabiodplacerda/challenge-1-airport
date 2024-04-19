@@ -9,6 +9,11 @@ const airport = {
   isAirportFull: function () {
     return this.planesAtAirport.length >= this.airportCapacity;
   },
+  planeExistsInAirport: function (plane) {
+    return this.planesAtAirport.some(
+      (planeInArray) => plane.planeId === planeInArray.planeId
+    );
+  },
 };
 
 export default airport;

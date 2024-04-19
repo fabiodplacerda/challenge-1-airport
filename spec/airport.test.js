@@ -142,3 +142,81 @@ console.log(`==================`);
 afterEach();
 
 //! END OF TEST 5
+
+//? Test 6
+console.log("TEST 6: test that checks if the plane is already at the airport");
+console.log(`==================`);
+
+// Arrange
+let planeTest = { planeId: "1" };
+airport.planesAtAirport = [{ planeId: "1" }];
+expected = true;
+
+// Act
+actual = airport.planeExistsInAirport(planeTest);
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 6
+
+//? Test 7
+console.log(
+  "TEST 7: test that checks if planeExistsInAirport() reports back as false when plane is not at the airport"
+);
+console.log(`==================`);
+
+// Arrange
+planeTest = { planeId: "2" };
+airport.planesAtAirport = [{ planeId: "1" }];
+expected = false;
+
+// Act
+actual = airport.planeExistsInAirport(planeTest);
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 7
+
+//? Test 8
+console.log(
+  "TEST 8: test that checks if planeExistsInAirport() works when the the airport is empty"
+);
+console.log(`==================`);
+
+// Arrange
+planeTest = { planeId: "2" };
+expected = false;
+
+// Act
+actual = airport.planeExistsInAirport(planeTest);
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 8
