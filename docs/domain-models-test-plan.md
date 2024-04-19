@@ -3,14 +3,6 @@
 ## User Stories
 
 As an Airport manager\
-I want my airport to have a maximum capacity\
-So that I can control how many planes can be at the airport
-
-| Objects | Properties                 | Messages | Output. |
-| ------- | -------------------------- | -------- | ------- |
-| Airport | - airportCapacity @Integer |          |         |
-
-As an Airport manager\
 I want to be able to change the capacity\
 So that I can increase or decrease as I see fit
 
@@ -55,7 +47,7 @@ So that no non-existing planes can take off from the airport
 | Airport | - planesAtAirport @Array[@Plane] | - planeExistsInAirport(@Plane) | @Boolean |
 
 As a Traffic controller\
-I want to be able to instruct the planes to take \
+I want to be able to instruct the planes to take off \
 So that planes can departure from the airport
 
 | Objects | Properties                       | Messages               | Output. |
