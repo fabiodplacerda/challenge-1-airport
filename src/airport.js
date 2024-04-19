@@ -14,6 +14,13 @@ const airport = {
       (planeInArray) => plane.planeId === planeInArray.planeId
     );
   },
+  landPlane: function (plane) {
+    if (plane) {
+      if (!this.isAirportFull() && !this.planeExistsInAirport(plane)) {
+        this.planesAtAirport.push(plane);
+      }
+    }
+  },
 };
 
 export default airport;

@@ -5,6 +5,9 @@ import airport from "../src/airport.js";
 const afterEach = () => {
   airport.airportCapacity = 10;
   airport.planesAtAirport = [];
+  actual = undefined;
+  expected = undefined;
+  result = undefined;
 };
 
 //? Test 1
@@ -220,3 +223,145 @@ console.log(`==================`);
 afterEach();
 
 //! END OF TEST 8
+
+//? Test 9
+console.log(
+  "TEST 9: land a plane at the airport and expect the array (planesAtAirport) to have it's length increased by 1"
+);
+console.log(`==================`);
+
+// Arrange
+expected = airport.planesAtAirport.length + 1;
+
+// Act
+airport.landPlane({ planeId: "1" });
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 9
+
+//? Test 10
+console.log(
+  "TEST 10: test that the plane passed in landPlane() actually exist after it's called"
+);
+console.log(`==================`);
+
+// Arrange
+planeTest = { planeId: "5" };
+airport.planesAtAirport = [
+  { planeId: "1" },
+  { planeId: "2" },
+  { planeId: "3" },
+];
+expected = true;
+
+// Act
+airport.landPlane(planeTest);
+actual = airport.planesAtAirport.includes(planeTest);
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 10
+
+//? Test 11
+console.log(
+  "TEST 11: test that checks that planes are not allowed to land when airport is full"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(2);
+airport.planesAtAirport = [{ planeId: "1" }, { planeId: "2" }];
+expected = airport.planesAtAirport.length;
+
+// Act
+airport.landPlane({ planeId: "1" });
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 11
+
+//? Test 12
+console.log(
+  "TEST 12: test that checks that plane is not allowed to land if it already exists in the airport"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(3);
+airport.planesAtAirport = [{ planeId: "1" }, { planeId: "2" }];
+expected = airport.planesAtAirport.length;
+
+// Act
+airport.landPlane({ planeId: "1" });
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 12
+
+//? Test 13
+console.log(
+  "TEST 13: test that checks plane passed in the landPlane is not undefined/null value"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(3);
+airport.planesAtAirport = [{ planeId: "1" }, { planeId: "2" }];
+expected = airport.planesAtAirport.length;
+
+// Act
+airport.landPlane(null);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 13
