@@ -365,3 +365,130 @@ console.log(`==================`);
 afterEach();
 
 //! END OF TEST 13
+
+//? Test 14
+console.log(
+  "TEST 14: takeoff a plane from the airport and expect the array (planesAtAirport) to have it's length decrease by 1"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(2);
+planeTest = { planeId: "1" };
+airport.planesAtAirport = [{ planeId: "1" }, { planeId: "2" }];
+expected = airport.planesAtAirport.length - 1;
+
+// Act
+airport.takeOffPlane(planeTest);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 14
+
+//? Test 15
+console.log(
+  "TEST 15: test checks that the plane passed in takeOffPlane() it is actually removed from the array (planesAtAirport) after the function is called"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(5);
+planeTest = { planeId: "3" };
+airport.planesAtAirport = [
+  { planeId: "1" },
+  { planeId: "2" },
+  { planeId: "3" },
+  { planeId: "4" },
+  { planeId: "5" },
+];
+expected = [
+  { planeId: "1" },
+  { planeId: "2" },
+  { planeId: "4" },
+  { planeId: "5" },
+].toString();
+
+// Act
+airport.takeOffPlane(planeTest);
+actual = airport.planesAtAirport.toString();
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 15
+
+//? Test 16
+console.log(
+  "TEST 16: test that checks you can't remove a plane that doesn't exist in the array (planesAtAirport)"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(2);
+planeTest = { planeId: "3" };
+airport.planesAtAirport = [{ planeId: "1" }, { planeId: "2" }];
+expected = airport.planesAtAirport.toString();
+
+// Act
+airport.takeOffPlane(planeTest);
+actual = airport.planesAtAirport.toString();
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 16
+
+//? Test 17
+console.log(
+  "TEST 17: test that checks you can't remove a plane that is null/undefined from the array (planesAtAirport)"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(2);
+planeTest = undefined;
+airport.planesAtAirport = [{ planeId: "1" }, { planeId: "2" }];
+expected = airport.planesAtAirport.toString();
+
+// Act
+airport.takeOffPlane(planeTest);
+actual = airport.planesAtAirport.toString();
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 17

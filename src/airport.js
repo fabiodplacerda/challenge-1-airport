@@ -21,6 +21,14 @@ const airport = {
       }
     }
   },
+  takeOffPlane: function (plane) {
+    if (plane) {
+      const newPlanesAtAirport = this.planesAtAirport.filter(
+        (planeInArray) => planeInArray.planeId !== plane.planeId
+      );
+      this.planesAtAirport = newPlanesAtAirport;
+    }
+  },
 };
 
 export default airport;
