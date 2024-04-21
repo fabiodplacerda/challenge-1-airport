@@ -54,7 +54,3 @@ So that planes can departure from the airport
 | ------- | -------------------------------- | ---------------------- | ------- |
 | Plane   | id @String                       |                        |         |
 | Airport | - planesAtAirport @Array[@Plane] | - takeOffPlane(@Plane) | @Void   |
-
-As a Traffic controller
-I want to be able to check if the airport is at capacity
-So that the airport doesn't overflow
