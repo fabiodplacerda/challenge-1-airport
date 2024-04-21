@@ -12,7 +12,7 @@ const afterEach = () => {
 
 //? Test 1
 console.log(
-  "TEST 1: Check if the capacity has change when changeCapacity() is called with a number "
+  "TEST 1: Check if the capacity has changed when changeCapacity() is called with a number "
 );
 console.log(`==================`);
 
@@ -173,7 +173,7 @@ afterEach();
 
 //? Test 7
 console.log(
-  "TEST 7: test that checks if planeExistsInAirport() reports back as false when plane is not at the airport"
+  "TEST 7: test that checks if planeExistsInAirport() reports back as false when the plane is not at the airport"
 );
 console.log(`==================`);
 
@@ -226,7 +226,7 @@ afterEach();
 
 //? Test 9
 console.log(
-  "TEST 9: land a plane at the airport and expect the array (planesAtAirport) to have it's length increased by 1"
+  "TEST 9: land a plane at the airport and expect the array (planesAtAirport) to have its length increased by 1"
 );
 console.log(`==================`);
 
@@ -252,7 +252,7 @@ afterEach();
 
 //? Test 10
 console.log(
-  "TEST 10: test that the plane passed in landPlane() actually exist after it's called"
+  "TEST 10: test that the plane passed in landPlane() exists after it's called"
 );
 console.log(`==================`);
 
@@ -284,7 +284,7 @@ afterEach();
 
 //? Test 11
 console.log(
-  "TEST 11: test that checks that planes are not allowed to land when airport is full"
+  "TEST 11: test that checks that planes are not allowed to land when the airport is full"
 );
 console.log(`==================`);
 
@@ -312,7 +312,7 @@ afterEach();
 
 //? Test 12
 console.log(
-  "TEST 12: test that checks that plane is not allowed to land if it already exists in the airport"
+  "TEST 12: test that checks that the plane is not allowed to land if it already exists in the airport"
 );
 console.log(`==================`);
 
@@ -368,7 +368,7 @@ afterEach();
 
 //? Test 14
 console.log(
-  "TEST 14: takeoff a plane from the airport and expect the array (planesAtAirport) to have it's length decrease by 1"
+  "TEST 14: takeoff a plane from the airport and expect the array (planesAtAirport) to have its length decrease by 1"
 );
 console.log(`==================`);
 
@@ -397,7 +397,7 @@ afterEach();
 
 //? Test 15
 console.log(
-  "TEST 15: test checks that the plane passed in takeOffPlane() it is actually removed from the array (planesAtAirport) after the function is called"
+  "TEST 15: test checks that the plane passed in takeOffPlane() is removed from the array (planesAtAirport) after the function is called"
 );
 console.log(`==================`);
 
