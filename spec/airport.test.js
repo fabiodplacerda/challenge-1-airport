@@ -1,4 +1,4 @@
-import { assertEquals } from "./test-framework/test-framework.js";
+import { assertEquals, toEqual } from "./test-framework/test-framework.js";
 import airport from "../src/airport.js";
 
 // After Each test function
@@ -416,14 +416,14 @@ expected = [
   { planeId: "2" },
   { planeId: "4" },
   { planeId: "5" },
-].toString();
+];
 
 // Act
 airport.takeOffPlane(planeTest);
-actual = airport.planesAtAirport.toString();
+actual = airport.planesAtAirport;
 
 // Assert
-result = assertEquals(actual, expected);
+result = toEqual(actual, expected);
 
 // Result
 console.log(result ? `Pass` : `Fail`);
@@ -474,14 +474,14 @@ console.log(`==================`);
 airport.changeCapacity(2);
 planeTest = undefined;
 airport.planesAtAirport = [{ planeId: "1" }, { planeId: "2" }];
-expected = airport.planesAtAirport.toString();
+expected = [{ planeId: "1" }, { planeId: "2" }];
 
 // Act
 airport.takeOffPlane(planeTest);
-actual = airport.planesAtAirport.toString();
+actual = airport.planesAtAirport;
 
 // Assert
-result = assertEquals(actual, expected);
+result = toEqual(actual, expected);
 
 // Result
 console.log(result ? `Pass` : `Fail`);
