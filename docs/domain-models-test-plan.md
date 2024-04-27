@@ -54,3 +54,39 @@ So that planes can departure from the airport
 | ------- | -------------------------------- | ---------------------- | ------- |
 | Plane   | id @String                       |                        |         |
 | Airport | - planesAtAirport @Array[@Plane] | - takeOffPlane(@Plane) | @Void   |
+
+As a Traffic Controller\
+I want to be able to check the current weather\
+So that I can make informed decisions about plane landings and takeoffs.
+
+| Objects | Properties | Messages            | Output  |
+| ------- | ---------- | ------------------- | ------- |
+| Weather | weatherNow | getCurrentWeather() | @String |
+
+As a Traffic Controller\
+I want to be able to check if it's stormy\
+So that I plan my next decisions about landing and takeoff a plane.
+
+| Objects | Properties         | Messages   | Output   |
+| ------- | ------------------ | ---------- | -------- |
+| Weather | weatherNow @String | isStormy() | @Boolean |
+
+As a Traffic Controller\
+I want to prevent planes from landing when the weather is stormy\
+So that I can ensure passenger safety.
+
+| Objects | Properties                       | Messages                        | Output   |
+| ------- | -------------------------------- | ------------------------------- | -------- |
+| Plane   | id @String                       |                                 |          |
+| Weather | weatherNow @String               | isStormy()                      | @Boolean |
+| Airport | - planesAtAirport @Array[@Plane] | - landPlane(@Plane, weatherNow) | @Void    |
+
+As a Traffic Controller\
+I want to prevent planes from taking off when the weather is stormy\
+So that I can ensure passenger safety.
+
+| Objects | Properties                       | Messages                           | Output   |
+| ------- | -------------------------------- | ---------------------------------- | -------- |
+| Plane   | id @String                       |                                    |          |
+| Weather | weatherNow @String               | isStormy()                         | @Boolean |
+| Airport | - planesAtAirport @Array[@Plane] | - takeOffPlane(@Plane, weatherNow) | @Void    |
