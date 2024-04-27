@@ -23,8 +23,8 @@ const airport = {
   },
 
   // Method that adds the functionality to add a new Plane to the Airport array (planesAtAirport)
-  landPlane: function (plane) {
-    if (plane) {
+  landPlane: function (plane, weather) {
+    if (plane && weather !== "stormy") {
       if (!this.isAirportFull() && !this.planeExistsInAirport(plane)) {
         this.planesAtAirport.push(plane);
       }
@@ -32,8 +32,8 @@ const airport = {
   },
 
   // Method that adds the functionality to remove a Plane from the Airport array (planesAtAirport)
-  takeOffPlane: function (plane) {
-    if (plane) {
+  takeOffPlane: function (plane, weather) {
+    if (plane && weather !== "stormy") {
       const newPlanesAtAirport = this.planesAtAirport.filter(
         (planeInArray) => planeInArray.planeId !== plane.planeId
       );
