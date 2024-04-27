@@ -1,4 +1,5 @@
 import { plane1, plane2, plane3, plane4, plane5, plane6 } from "./planes.js";
+import weather from "./weather.js";
 import airport from "./airport.js";
 
 // Change Airport capacity
@@ -41,3 +42,32 @@ console.log(
 // Taking off a plane that doesn't exist in the Airport has no effect
 airport.takeOffPlane(plane2);
 console.log(airport.planesAtAirport);
+
+// Generate random weather
+weather.generateRandomWeather();
+console.log("Weather now:", weather.getCurrentWeather());
+
+// Landing a plane when the weather is sunny
+weather.weatherNow = "sunny";
+let theWeatherNow = weather.weatherNow;
+
+airport.landPlane(plane6, theWeatherNow);
+console.log("Planes at the airport at the moment:", airport.planesAtAirport);
+
+// Taking off a plane when the weather is sunny
+
+airport.takeOffPlane(plane1, theWeatherNow);
+console.log("Planes at the airport at the moment:", airport.planesAtAirport);
+
+// Landing a plane when the weather is stormy
+weather.weatherNow = "stormy";
+theWeatherNow = weather.weatherNow;
+
+airport.landPlane(plane4, theWeatherNow); // This plane won't be added to the airport since the weather is stormy
+console.log("Planes at the airport at the moment:", airport.planesAtAirport);
+
+// Taking off a plane when the weather is stormy
+
+airport.takeOffPlane(plane2, theWeatherNow); // This plane won't be removed from the airport since the weather is stormy
+
+console.log("Planes at the airport at the moment:", airport.planesAtAirport);
