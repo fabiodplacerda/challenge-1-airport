@@ -492,3 +492,124 @@ console.log(`==================`);
 afterEach();
 
 //! END OF TEST 17
+
+//? Test 18
+console.log(
+  "TEST 18: test that checks that the plane can't land if the weather is stormy"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(2);
+let weather = "stormy";
+airport.planesAtAirport = [{ planeId: "1" }];
+expected = airport.planesAtAirport.length;
+
+// Act
+airport.landPlane({ planeId: "2" }, weather);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+// Clean Up
+afterEach();
+
+//! END OF TEST 18
+
+//? Test 19
+console.log(
+  "TEST 19: test that checks that the plane can't take off if the weather is stormy"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(3);
+weather = "stormy";
+airport.planesAtAirport = [
+  { planeId: "1" },
+  { planeId: "2" },
+  { planeId: "3" },
+];
+expected = airport.planesAtAirport.length;
+
+// Act
+airport.takeOffPlane({ planeId: "2" }, weather);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+
+// Clean Up
+afterEach();
+
+//! END OF TEST 19
+
+//? Test 20
+console.log(
+  "TEST 20: test that checks that the plane can land if the weather is not stormy"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(2);
+weather = "sunny";
+airport.planesAtAirport = [{ planeId: "1" }];
+expected = airport.planesAtAirport.length + 1;
+
+// Act
+airport.landPlane({ planeId: "2" }, weather);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+// Clean Up
+afterEach();
+
+//! END OF TEST 20
+
+//? Test 21
+console.log(
+  "TEST 21: test that checks that the plane can take off if the weather is not stormy"
+);
+console.log(`==================`);
+
+// Arrange
+airport.changeCapacity(3);
+weather = "sunny";
+airport.planesAtAirport = [
+  { planeId: "1" },
+  { planeId: "2" },
+  { planeId: "3" },
+];
+expected = airport.planesAtAirport.length - 1;
+
+// Act
+airport.takeOffPlane({ planeId: "2" }, weather);
+actual = airport.planesAtAirport.length;
+
+// Assert
+result = assertEquals(actual, expected);
+
+// Result
+console.log(result ? `Pass` : `Fail`);
+!result && console.log(`Expected: ${expected}; Actual: ${actual}`);
+console.log(`==================`);
+// Clean Up
+afterEach();
+
+//! END OF TEST 21
